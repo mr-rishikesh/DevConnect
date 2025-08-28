@@ -1,5 +1,5 @@
-import Post from "../model/post.model.js";
-import cloudinary from "../lib/cloudinary.js";
+import Post from "../models/post.model.js";
+import cloudinary from "../utils/cloudinary.js";
 import mongoose from "mongoose";
 
 // Function takes the following parameters:
@@ -372,7 +372,7 @@ export const toggleUpvotePost = async (req, res) => {
     }
 
     // Check if user has already upvoted
-    const userUpvoteIndex = post.upvotedBy?.findIndex(upvote => 
+    const userUpvoteIndex = post.upvotedBy?.findIndex(upvote =>
       upvote.userId.toString() === req.user._id.toString()
     ) ?? -1;
 
@@ -393,10 +393,10 @@ export const toggleUpvotePost = async (req, res) => {
     delete postObj.upvotedBy;
 
     const wasUpvoted = userUpvoteIndex !== -1;
-    res.status(200).json({ 
-      success: true, 
-      message: wasUpvoted ? "Post upvote removed" : "Post upvoted successfully", 
-      post: postObj 
+    res.status(200).json({
+      success: true,
+      message: wasUpvoted ? "Post upvote removed" : "Post upvoted successfully",
+      post: postObj
     });
   } catch (error) {
     console.error("Failed to toggle upvote the post due to following error:", error);

@@ -1,7 +1,7 @@
 import express from "express"
 import { createPost, getPosts, getPostById, deletePost, toggleUpvotePost, editPost } from "../controllers/post.controller.js";
 import { protectRoute } from "../middleware/auth.middleware.js";
-import upload from "../lib/upload.js";
+import upload from "../utils/upload.js";
 
 const postRouter = express.Router();
 

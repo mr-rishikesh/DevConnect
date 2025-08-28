@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import User from "../model/user.model.js";
+import User from "../models/user.model.js";
 
 
 
@@ -25,7 +25,7 @@ export const protectRoute = async (req, res, next) => {
                 message: "User not authenticated - Please provide Valid token"
             })
         }
-        
+
         const user = await User.findById(decoded.userId).select("-password")
 
 

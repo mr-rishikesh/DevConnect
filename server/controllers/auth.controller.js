@@ -1,10 +1,5 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
-import nodemailer from "nodemailer";
-import User from "../model/user.model.js";
-import { generateToken } from "../lib/util.js";
+import User from "../models/user.model.js";
+import { generateToken } from "../utils/util.js";
 import bcrypt from "bcrypt";
 
 export const signUp = async (req, res) => {
