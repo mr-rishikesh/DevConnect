@@ -63,11 +63,11 @@ export const usePostStore = create((set, get) => ({
     getFeedPosts: async () => {
         try {
 
-            const res = await axiosInstance.get("/post/get-feed");
+            const res = await axiosInstance.get("/post/");
             //  toast.success("Feed data fetched")
             //  console.log("Res of messages")
             console.log(res)
-            set({ feedPosts: res.data.data })
+            set({ feedPosts: res.data.posts })
 
         } catch (error) {
             console.log(error);

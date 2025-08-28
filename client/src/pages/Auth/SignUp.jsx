@@ -11,7 +11,6 @@ import {
   User,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import TagInput from "../../components/TagInput";
 function SignUp() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -101,7 +100,6 @@ function SignUp() {
 
 
 
-                {/* <TagInput /> */}
                 <div>
                   <label
                     htmlFor="city"

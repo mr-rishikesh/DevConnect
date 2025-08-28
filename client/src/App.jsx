@@ -33,6 +33,7 @@ import PrivacyTerms from "./pages/PrivacyTerms";
 import ProfilePage from "./components/ProfilePage";
 import About from "./pages/About";
 import PageNotFound from "./pages/PageNotFound";
+import CreatePostPage from "./pages/CreatePostPage";
 
 // Layout component that includes Navbar, Footer and an Outlet
 function Layout() {
@@ -86,6 +87,7 @@ function App() {
             <Route path="/privacyTerms" element={<PrivacyTerms />} />
             <Route path="/messages" element={authUser ? <MessagePage /> : <Navigate to="/login" />} />
             <Route path="/home" element={authUser ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/create-post" element={authUser ? <CreatePostPage /> : <Navigate to="/login" />} />
             <Route path="/explore" element={authUser ? <Explore /> : <Navigate to="/login" />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
