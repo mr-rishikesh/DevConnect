@@ -1,7 +1,7 @@
 // server/controllers/projectController.js
 
-import Project from '../model/Project.js';
-import { getPagination } from '../utilise/pagination.js';
+import Project from '../models/Project.js';
+import { getPagination } from '../utils/pagination.js';
 
 // GET /api/projects
 export const getAllProjects = async (req, res) => {
