@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { usePostStore } from "../store/usePostStore.js";
-import { FiArrowLeft, FiImage, FiLoader, FiX, FiAlertCircle, FiPlus } from "react-icons/fi";
+import { FiImage, FiLoader, FiX, FiAlertCircle } from "react-icons/fi";
 
 export default function CreatePostPage() {
     const navigate = useNavigate();
@@ -318,10 +318,9 @@ export default function CreatePostPage() {
                             </span>
                         )}
                     </div>
-                    <div 
-                        className={`flex flex-wrap gap-2 items-center min-h-[46px] p-2 border border-gray-200 dark:border-secondary-700 rounded-lg bg-white dark:bg-secondary-800 transition-colors duration-200 ${
-                            formData.tags.length === 0 ? 'py-3' : ''
-                        }`}
+                    <div
+                        className={`flex flex-wrap gap-2 items-center min-h-[46px] p-2 border border-gray-200 dark:border-secondary-700 rounded-lg bg-white dark:bg-secondary-800 transition-colors duration-200 ${formData.tags.length === 0 ? 'py-3' : ''
+                            }`}
                         onClick={() => document.querySelector('.tag-input')?.focus()}
                     >
                         {formData.tags.length === 0 && !tagInput && (
@@ -330,8 +329,8 @@ export default function CreatePostPage() {
                             </span>
                         )}
                         {formData.tags.map((tag, index) => (
-                            <div 
-                                key={index} 
+                            <div
+                                key={index}
                                 className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-50 dark:bg-accent-900/30 hover:bg-primary-100 dark:hover:bg-accent-800/40 rounded-md transition-colors duration-200"
                             >
                                 <span className="text-sm font-medium text-primary-700 dark:text-accent-300">{tag}</span>
