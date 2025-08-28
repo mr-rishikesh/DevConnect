@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CreatePost from "./CreatePost";
 import { useAuthStore } from "../store/useAuthStore.js";
 import { usePostStore } from "../store/usePostStore.js";
 
