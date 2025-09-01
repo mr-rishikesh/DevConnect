@@ -11,6 +11,22 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        toggleDarkMode();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   if (!mounted) {
     return (
       <div className="w-10 h-10 flex items-center justify-center">
@@ -22,13 +38,14 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleDarkMode}
+      aria-label="Toggle dark mode (Ctrl+K)"
+      title="Toggle dark mode (Ctrl+K)"
       className={`
         flex items-center justify-center 
         w-10 h-10 rounded-lg focus:outline-none 
         transition-colors duration-200
         ${darkMode ? 'bg-gray-800' : 'bg-orange-50'}
       `}
-      aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {darkMode ? (
         <FiMoon className="w-5 h-5 text-blue-300" />

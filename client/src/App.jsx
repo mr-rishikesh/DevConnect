@@ -25,7 +25,7 @@ import SignUp from "./pages/Auth/SignUp";
 import SignIn from "./pages/Auth/SignIn";
 
 // Normal pages
-import { Home } from "./pages/Home";
+import Home from "./pages/HomePage/Home";
 import HomeLanding from "./components/HomeLanding";
 import MessagePage from "./pages/MessagePage";
 import Explore from "./pages/Explore";
@@ -77,19 +77,22 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             {/* Auth Routes */}
-            <Route path="/login" element={authUser ? <Navigate to="/home" /> : <SignIn />} />
             <Route path="/signup" element={authUser ? <Navigate to="/home" /> : <SignUp />} />
+            <Route path="/login" element={authUser ? <Navigate to="/home" /> : <SignIn />} />
 
             {/* Main Routes */}
             <Route path="/" element={<HomeLanding />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacyTerms" element={<PrivacyTerms />} />
-            <Route path="/messages" element={authUser ? <MessagePage /> : <Navigate to="/login" />} />
             <Route path="/home" element={authUser ? <Home /> : <Navigate to="/login" />} />
-            <Route path="/create-post" element={authUser ? <CreatePostPage /> : <Navigate to="/login" />} />
             <Route path="/explore" element={authUser ? <Explore /> : <Navigate to="/login" />} />
+            <Route path="/messages" element={authUser ? <MessagePage /> : <Navigate to="/login" />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/create-post" element={authUser ? <CreatePostPage /> : <Navigate to="/login" />} />
+
+            {/* Extra Routes */}
+            <Route path="/privacyTerms" element={<PrivacyTerms />} />
             <Route path="*" element={<PageNotFound />} />
+
           </Route>
         </Routes>
 
