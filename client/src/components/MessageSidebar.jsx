@@ -36,13 +36,15 @@ const MessageSidebar = ({ onSelectChat }) => {
 
   return (
     <div className="h-full overflow-y-auto p-4">
-      <h2 className="text-lg font-semibold mb-4">Messages</h2>
+      <h2 className="text-lg font-semibold mb-4" data-aos="fade-right">Messages</h2>
       <ul className="space-y-4">
-        {conversations.map((chat) => (
+        {conversations.map((chat, idx) => (
           <li
             key={chat.id}
             onClick={() => onSelectChat(chat)}
             className="flex items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition"
+            data-aos="fade-right"
+            data-aos-delay={idx * 100}
           >
             <div className="relative">
               <img

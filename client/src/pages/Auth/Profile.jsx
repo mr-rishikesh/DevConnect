@@ -6,8 +6,8 @@ export default function Profile() {
   const { authUser } = useAuthStore();
 
   return (
-    <div className="min-h-screen bg-gray-200 p-8">
-      <div className="relative bg-white rounded-lg shadow-xl pb-8">
+    <div className="min-h-screen bg-gray-200 p-8" data-aos="fade-in">
+      <div className="relative bg-white rounded-lg shadow-xl pb-8" data-aos="fade-up" data-aos-delay="100">
         {/* Settings Button */}
         <div className="absolute right-12 mt-4 rounded">
           <button
@@ -94,7 +94,7 @@ export default function Profile() {
       </div>
 
       {/* Profile Info Section */}
-      <div className="my-4 w-full">
+      <div className="my-4 w-full" data-aos="fade-up" data-aos-delay="200">
         <div className="bg-white rounded-lg shadow-xl p-8">
           <h4 className="text-xl text-gray-900 font-bold">Personal Info</h4>
           <ul className="mt-2 text-gray-700">
