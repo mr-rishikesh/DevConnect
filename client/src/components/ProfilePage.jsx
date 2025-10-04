@@ -4,11 +4,11 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Header */}
-      <div className="relative bg-gradient-to-r from-blue-200 via-purple-300 to-pink-200 h-20 w-full rounded-b-3xl shadow-md" />
+      <div className="relative bg-gradient-to-r from-blue-200 via-purple-300 to-pink-200 h-20 w-full rounded-b-3xl shadow-md" data-aos="fade-down" />
 
       {/* Profile Info Card */}
       <div className="max-w-5xl mx-auto px-6 mt-18 ">
-        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6" data-aos="fade-up">
           {/* Avatar */}
           <img
             src="https://i.pravatar.cc/150?img=12"
@@ -51,7 +51,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Tabs */}
-        <div className="mt-10 flex gap-6 border-b pb-2 text-gray-500 font-medium text-sm">
+        <div className="mt-10 flex gap-6 border-b pb-2 text-gray-500 font-medium text-sm" data-aos="fade-up" data-aos-delay="100">
           <button className="text-black border-b-2 border-black pb-1">Achievements</button>
           <button>Projects</button>
           <button>Connections</button>
@@ -61,7 +61,7 @@ const ProfilePage = () => {
         {/* Cards */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition">
+            <div key={i} className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay={i * 100}>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Project #{i}</h3>
               <p className="text-sm text-gray-600">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus.

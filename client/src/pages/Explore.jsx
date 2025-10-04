@@ -9,13 +9,13 @@ const Explore = () => {
   return (<>
     {/* <UserSettingsCard/> */}
 
-    <div className="w-full flex justify-center pt-4 pb-8 lg:pt-2 lg:pb-1 bg-white dark:bg-gray-900 antialiased">
+    <div className="w-full flex justify-center pt-4 pb-8 lg:pt-2 lg:pb-1 bg-white dark:bg-gray-900 antialiased" data-aos="fade-in">
 
 
-      <ul role="list" class="max-w-xl  divide-y divide-gray-200 dark:divide-gray-700">
+      <ul role="list" className="max-w-xl  divide-y divide-gray-200 dark:divide-gray-700">
         {allUsers.map((user) => {
           return (
-            <ProfileCard user={user} />
+            <ProfileCard user={user} key={user._id} />
           )
         })}
 

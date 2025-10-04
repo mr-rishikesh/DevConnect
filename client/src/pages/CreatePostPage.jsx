@@ -186,12 +186,12 @@ export default function CreatePostPage() {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
             <Toaster position="top-center" />
-            <div className="max-w-7xl mx-auto">
-                <h1 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <div className="max-w-7xl mx-auto" data-aos="fade-up">
+                <h1 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
                     Create New Post
                 </h1>
 
-                <form onSubmit={handleSubmit} className="space-y-8 bg-white dark:bg-secondary-800 rounded-2xl shadow-sm p-6 sm:p-8 border border-gray-100 dark:border-secondary-700">
+                <form onSubmit={handleSubmit} className="space-y-8 bg-white dark:bg-secondary-800 rounded-2xl shadow-sm p-6 sm:p-8 border border-gray-100 dark:border-secondary-700" data-aos="fade-up" data-aos-delay="100">
                     {/* Cover Image */}
                     <div className="space-y-2">
                         <div className="space-y-3">

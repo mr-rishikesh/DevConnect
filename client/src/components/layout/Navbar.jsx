@@ -47,22 +47,22 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-white dark:bg-secondary-900 border-b border-gray-200 dark:border-secondary-700 transition-colors duration-200">
+    <nav className="sticky top-0 left-0 w-full z-50 bg-white dark:bg-secondary-900 border-b border-gray-200 dark:border-secondary-700 transition-colors duration-200" data-aos="fade-down">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo and mobile menu button */}
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <img 
-                className="h-8 w-auto" 
-                src="/assets/logo.png" 
-                alt="DevConnect" 
+              <img
+                className="h-8 w-auto"
+                src="/assets/logo.png"
+                alt="DevConnect"
               />
               <span className="ml-3 text-xl font-bold text-gray-900 dark:text-white hidden sm:block transition-colors duration-200">
                 DevConnect
               </span>
             </Link>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:block ml-10">
               <div className="flex space-x-2">
@@ -72,8 +72,8 @@ const Navbar = () => {
                     to={item.to}
                     className={({ isActive }) =>
                       `px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                        isActive 
-                          ? 'bg-primary-100 text-primary-700 dark:bg-accent-900/30 dark:text-accent-400' 
+                        isActive
+                          ? 'bg-primary-100 text-primary-700 dark:bg-accent-900/30 dark:text-accent-400'
                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-secondary-800 hover:text-primary-600 dark:hover:text-accent-400'
                       }`
                     }
@@ -88,7 +88,7 @@ const Navbar = () => {
           {/* Right side items */}
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            
+
             {authUser ? (
               <div className="relative ml-3" ref={dropdownRef}>
                 <button
@@ -105,11 +105,11 @@ const Navbar = () => {
                       src={authUser.avatar || "https://avatars.githubusercontent.com/u/160262729"}
                       alt="User profile"
                     />
-                    <FiChevronDown 
+                    <FiChevronDown
                       className={`ml-1 text-gray-500 dark:text-gray-400 transition-all duration-200 ${
                         isDropdownOpen ? 'transform rotate-180 text-primary-600 dark:text-accent-400' : ''
-                      }`} 
-                      size={16} 
+                      }`}
+                      size={16}
                     />
                   </div>
                 </button>

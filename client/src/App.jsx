@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
-// ------------- Components ------------- 
+// ------------- Components -------------
 import { useAuthStore } from "./store/useAuthStore";
 import { Toaster } from "react-hot-toast";
 import { Loader } from "lucide-react";
@@ -12,15 +14,15 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 
 
-// ------------- Layout ------------- 
+// ------------- Layout -------------
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 
 
 
-// ------------- Pages ------------- 
-// Auth Pages 
+// ------------- Pages -------------
+// Auth Pages
 import SignUp from "./pages/Auth/SignUp";
 import SignIn from "./pages/Auth/SignIn";
 
@@ -57,6 +59,12 @@ function App() {
 
 
   useEffect(() => {
+    // Initialize AOS on component mount
+    AOS.init({
+      duration: 1000, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+
     checkAuth()
     initFlowbite();
   }, [checkAuth])

@@ -28,18 +28,20 @@ export default function MessagePage() {
   const [selectedUser, setSelectedUser] = useState(null);
 
   return (
-    <div className="flex h-[100vh] text-gray-900 dark:text-white bg-white dark:bg-gray-900">
+    <div className="flex h-[100vh] text-gray-900 dark:text-white bg-white dark:bg-gray-900" data-aos="fade-in">
       {/* Sidebar */}
-      <aside className={`w-full md:w-1/3 border-r border-gray-300 dark:border-gray-700 ${selectedUser ? 'hidden md:block' : 'block'}`}>
+      <aside className={`w-full md:w-1/3 border-r border-gray-300 dark:border-gray-700 ${selectedUser ? 'hidden md:block' : 'block'}`} data-aos="fade-right">
         <div className="p-4 text-xl font-bold border-b border-gray-200 dark:border-gray-700">
           Messages
         </div>
         <ul className="overflow-y-auto h-full">
-          {dummyUsers.map((user) => (
+          {dummyUsers.map((user, i) => (
             <li
               key={user.id}
               className="flex items-center gap-3 p-4 hover:bg-blue-50 dark:hover:bg-gray-800 cursor-pointer"
               onClick={() => setSelectedUser(user)}
+              data-aos="fade-right"
+              data-aos-delay={i * 100}
             >
               <div className="relative">
                 <img className="w-12 h-12 rounded-full" src={user.avatar} alt={user.name} />
@@ -55,7 +57,7 @@ export default function MessagePage() {
       </aside>
 
       {/* Chat Window */}
-      <main className={`flex-1 flex flex-col ${!selectedUser ? 'hidden md:flex' : 'flex'}`}>
+      <main className={`flex-1 flex flex-col ${!selectedUser ? 'hidden md:flex' : 'flex'}`} data-aos="fade-left">
         {selectedUser ? (
           <>
             {/* Header */}

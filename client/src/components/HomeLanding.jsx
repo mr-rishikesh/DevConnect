@@ -83,17 +83,17 @@ const HomeLanding = () => {
       {/* Hero Section */}
       <section className="text-center px-6 py-24 max-w-6xl mx-auto">
 
-        <div className="mb-6 inline-flex items-center px-4 py-2 text-sm font-medium text-primary-700 dark:text-accent-100 bg-primary-50 dark:bg-accent-900/30 rounded-full border border-primary-100 dark:border-accent-800">
+        <div data-aos="fade-up" className="mb-6 inline-flex items-center px-4 py-2 text-sm font-medium text-primary-700 dark:text-accent-100 bg-primary-50 dark:bg-accent-900/30 rounded-full border border-primary-100 dark:border-accent-800">
           <span className="mr-2 bg-primary-600 dark:bg-accent-600 text-white px-2.5 py-1 rounded-full text-xs font-bold">🚀</span>
           Welcome to DevConnect!
         </div>
-        <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+        <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           <span className="text-primary-600 dark:text-accent-500">Build. Brag. Belong.</span><br />
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-xl">
+        <p data-aos="fade-up" data-aos-delay="200" className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-xl">
           The ultimate platform for developers to showcase their work, connect with peers, and build amazing projects together.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <div data-aos="fade-up" data-aos-delay="300" className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <Link
             to="/signup"
             className="bg-primary-600 hover:bg-primary-700 dark:bg-accent-600 dark:hover:bg-accent-700 text-white font-semibold py-3.5 px-8 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-200"
@@ -111,7 +111,7 @@ const HomeLanding = () => {
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50 dark:bg-secondary-900">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Everything You Need to Grow as a Developer</h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Join a thriving community of developers building the future together</p>
         </div>
@@ -120,6 +120,8 @@ const HomeLanding = () => {
             return (
               <div
                 key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
                 className="bg-white dark:bg-secondary-800 p-8 rounded-2xl shadow-sm border-2 border-gray-100 hover:border-primary-400 dark:border-secondary-700 dark:hover:border-accent-500 transition-all duration-300"
               >
                 <div className="w-16 h-16 mb-6 rounded-xl flex items-center justify-center text-3xl bg-primary-50 dark:bg-accent-900/30 text-primary-600 dark:text-accent-400">
@@ -136,11 +138,13 @@ const HomeLanding = () => {
       {/* How It Works */}
       <section className="py-20 bg-gray-50 dark:bg-secondary-900 text-center">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">How DevConnect Works</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12" data-aos="zoom-in-up">How DevConnect Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {howItWorks.map((step, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
+                data-aos="fade-up"
+                data-aos-delay={idx * 150}
                 className="bg-white dark:bg-secondary-800 p-8 rounded-2xl shadow-sm border-2 border-gray-100 hover:border-primary-400 dark:border-secondary-700 dark:hover:border-accent-500 transition-all duration-300 text-center"
               >
                 <div className="w-20 h-20 mx-auto mb-6 text-4xl flex items-center justify-center rounded-full bg-primary-50 dark:bg-accent-900/20 text-primary-600 dark:text-accent-400">
@@ -157,19 +161,21 @@ const HomeLanding = () => {
       {/* Testimonials */}
       <section className="py-20 bg-gray-50 dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">What Our Community Says</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12" data-aos="zoom-in-up">What Our Community Says</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
                 className="group relative bg-white dark:bg-secondary-800 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border-2 border-gray-100 dark:border-secondary-700 hover:border-primary-200 dark:hover:border-accent-500 overflow-hidden hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 dark:from-secondary-800 dark:to-secondary-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
                   <div className="absolute top-4 right-4 text-yellow-400">
                     {[...Array(5)].map((_, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className={`text-xl ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'}`}
                       >
                         ★
@@ -206,7 +212,7 @@ const HomeLanding = () => {
 
       {/* Final CTA */}
       <section className="relative overflow-hidden bg-primary-600 dark:bg-accent-800">
-        <div className="relative max-w-7xl mx-auto px-6 py-24 text-center">
+        <div className="relative max-w-7xl mx-auto px-6 py-24 text-center" data-aos="zoom-in">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
               Ready to join a community of passionate developers?

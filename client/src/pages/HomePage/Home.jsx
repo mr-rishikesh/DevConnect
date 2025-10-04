@@ -3,17 +3,30 @@ import { Link } from "react-router-dom";
 import { usePostStore } from "../../store/usePostStore.js"
 import Post from "../../components/Post.jsx";
 
+// --- Mock Data for Testing ---
+// Added this array to simulate having posts without being logged in.
+const dummyPosts = [
+    { _id: 'post1' },
+    { _id: 'post2' },
+    { _id: 'post3' },
+    { _id: 'post4' },
+];
+
 export default function Home() {
     const { getFeedPosts, feedPosts } = usePostStore();
 
-    useEffect(() => {
-        getFeedPosts();
-    }, [getFeedPosts]);
+    // Temporarily commented out the real data fetching for testing
+    // useEffect(() => {
+    //     getFeedPosts();
+    // }, [getFeedPosts]);
+
+    // Use the dummyPosts array for rendering
+    const postsToRender = feedPosts.length > 0 ? feedPosts : dummyPosts;
 
     return (
         <div className=" px-4 py-8 bg-gray-50 dark:bg-gray-900 min-h-screen">
             <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col space-y-4">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center" data-aos="fade-down">
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                         Your Feed
                     </h1>
@@ -29,14 +42,14 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-6">
-                    {feedPosts && feedPosts.length > 0 ? (
-                        feedPosts.map((post) => (
-                            <div key={post._id} className="bg-white dark:bg-secondary-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:border-secondary-700 overflow-hidden">
+                    {postsToRender && postsToRender.length > 0 ? (
+                        postsToRender.map((post, i) => (
+                            <div key={post._id} className="bg-white dark:bg-secondary-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:border-secondary-700 overflow-hidden" data-aos="fade-up" data-aos-delay={i * 100}>
                                 <Post post={post} />
                             </div>
                         ))
                     ) : (
-                        <div className="text-center py-16 bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-gray-100 dark:border-secondary-700">
+                        <div className="text-center py-16 bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-gray-100 dark:border-secondary-700" data-aos="zoom-in-up">
                             <div className="mx-auto w-16 h-16 flex items-center justify-center bg-primary-50 dark:bg-accent-900/20 rounded-full text-primary-500 dark:text-accent-400 mb-4">
                                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -59,3 +72,4 @@ export default function Home() {
         </div>
     )
 }
+

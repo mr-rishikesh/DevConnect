@@ -10,7 +10,7 @@ const About = () => {
         className="w-full bg-cover bg-center bg-no-repeat flex items-center"
         style={{ backgroundImage: `url(/bgNetwork.png)` }}
       >
-        <div className="mx-auto my-24 max-w-4xl px-6 text-left">
+        <div className="mx-auto my-24 max-w-4xl px-6 text-left" data-aos="fade-right">
           <h4 className="text-green-400 text-xl sm:text-2xl font-semibold tracking-wider">
             DevConnect
           </h4>
@@ -27,7 +27,7 @@ const About = () => {
       <div className="w-full h-10 bg-gradient-to-r from-slate-700 via-purple-500 to-blue-400" />
 
       {/* Mission Section */}
-      <div className="my-20 px-6 text-center">
+      <div className="my-20 px-6 text-center" data-aos="zoom-in-up">
         <h2 className="font-serif font-extrabold tracking-wide text-3xl sm:text-4xl lg:text-5xl text-blue-900 hover:text-red-500 hover:scale-110 transition-transform">
           MISSION
         </h2>
@@ -61,6 +61,8 @@ const About = () => {
           <div
             key={i}
             className="bg-blue-950 text-white p-8 rounded-lg shadow-md hover:shadow-xl hover:opacity-90 transition duration-300"
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
           >
             <h3 className="text-xl font-bold mb-4">{item.title}</h3>
             <p className="text-base">{item.text}</p>
@@ -68,8 +70,8 @@ const About = () => {
         ))}
       </div>
 
-      <div className='place-items-center grid sm:grid-rows-2 sm:grid-cols-1 md:grid-cols-2 md:grid-rows-1 lg:grid-rows-1 lg:grid-cols-2 gap-7 bg-blue-100 w-screen lg:pb-16 pb-8 pt-8'>
-        <div className='lg:ml-10 md:ml-10 md:mr-10'>
+      <div className='place-items-center grid sm:grid-rows-2 sm:grid-cols-1 md:grid-cols-2 md:grid-rows-1 lg:grid-rows-1 lg:grid-cols-2 gap-7 bg-blue-100 w-screen lg:pb-16 pb-8 pt-8' data-aos="fade-in">
+        <div className='lg:ml-10 md:ml-10 md:mr-10' data-aos="fade-right" data-aos-delay="200">
           <h2 className='text-center hover:text-amber-500 tracking-wide font-root-heading text-blue-600 font-extrabold lg:text-5xl sm:text-3xl sm:pt-5 md:pt-5 md:text-4xl pt-4 pb-10'>Why DevConnect?</h2>
           <div className='place-items-center grid lg:grid-cols-3 lg:grid-rows-2 md:grid-cols-2 md:grid-rows-3 sm:grid-rows-6 sm:grid-cols-1 gap-5'>
             <div className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
@@ -105,12 +107,12 @@ const About = () => {
 
         </div>
 
-        <div className='w-36 h-28 md:w-80 md:h-52 lg:w-96 bg-center bg-cover lg:h-80 mr-8 ml-8 lg:mt-20 rounded-xl hover:scale-110' style={{ backgroundImage: "url('/devCommunity.png')" }}></div>
+        <div className='w-36 h-28 md:w-80 md:h-52 lg:w-96 bg-center bg-cover lg:h-80 mr-8 ml-8 lg:mt-20 rounded-xl hover:scale-110' style={{ backgroundImage: "url('/devCommunity.png')" }} data-aos="fade-left" data-aos-delay="400"></div>
 
       </div>
 
       {/*footer*/}
-      <section className="bg-blue-600 text-white text-center py-20 px-6">
+      <section className="bg-blue-600 text-white text-center py-20 px-6" data-aos="zoom-in">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to build your dev network?</h2>
         <p className="mb-6 text-lg">Join DevConnect today and never code alone again.</p>
         <Link
