@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/useAuthStore"; // Corrected path
 import {
   Eye,
   EyeOff,
@@ -11,29 +11,27 @@ import {
   User,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import PasswordStrengthIndicator from "../../components/PasswordStrengthIndicator"; // Corrected path
+
 function SignUp() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     githubUrl: "",
     password: "",
-
   });
   const { signup, navigateToOtp, isSigningUp } = useAuthStore();
 
   const validateForm = () => {
     if (!formData.fullName.trim()) return toast.error("Full name is required");
     if (!formData.email.trim()) return toast.error("Email is required");
-    if (!formData.githubUrl.trim()) return toast.error("Email is required");
+    if (!formData.githubUrl.trim()) return toast.error("GitHub URL is required");
     if (!/\S+@\S+\.\S+/.test(formData.email))
       return toast.error("Invalid email format");
     if (!formData.password) return toast.error("Password is required");
 
-
     if (formData.password.length < 6)
       return toast.error("Password must be at least 6 characters");
-
-    console.log("reacher bootmo");
 
     return true;
   };
@@ -43,21 +41,18 @@ function SignUp() {
 
     const success = validateForm();
     if (success === true) await signup(formData);
-    console.log(navigateToOtp + "lets see ");
   };
 
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create an Account
               </h1>
               <div className="space-y-4 md:space-y-6">
-
                 {/* full name */}
                 <div>
                   <label
@@ -98,17 +93,15 @@ function SignUp() {
                   />
                 </div>
 
-
-
                 <div>
                   <label
-                    htmlFor="city"
+                    htmlFor="githubUrl"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Github URL
                   </label>
                   <input
-                    type="githubUrl"
+                    type="text"
                     onChange={(e) => {
                       setFormData({ ...formData, githubUrl: e.target.value });
                     }}
@@ -125,7 +118,6 @@ function SignUp() {
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    {" "}
                     Create Password
                   </label>
                   <input
@@ -139,9 +131,9 @@ function SignUp() {
                     className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-primary-200 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 placeholder-gray-400 dark:text-white dark:focus:ring-accent-500 dark:focus:border-accent-500 transition-colors duration-200"
                     required=""
                   />
+                  {/* Add the strength indicator component here */}
+                  <PasswordStrengthIndicator password={formData.password} />
                 </div>
-
-
 
                 <button
                   type="button"
@@ -178,3 +170,4 @@ function SignUp() {
 }
 
 export default SignUp;
+
